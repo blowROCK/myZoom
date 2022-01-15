@@ -1,0 +1,30 @@
+{
+  "name": "myZoom",
+  "version": "1.0.0",
+  "description": "zoom clone coding ( WebSockets, SocketIO, WebRTC )",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/blowROCK/myZoom.git"
+  },
+  "scripts": {
+    "dev": "nodemon"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/blowROCK/myZoom/issues"
+  },
+  "homepage": "https://github.com/blowROCK/myZoom#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.16.8",
+    "@babel/core": "^7.16.7",
+    "@babel/node": "^7.16.8",
+    "@babel/preset-env": "^7.16.8",
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "express": "^4.17.2",
+    "pug": "^3.0.2"
+  }
+}
