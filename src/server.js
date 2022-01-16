@@ -10,7 +10,7 @@ app.get('/', (req, res) => res.render('home'))
 app.get('/*', (req, res) => res.redirect('/'));
 
 const handleListen = () => {
-  console.log('listen http://localhost:40041');
+  console.log('listen http://localhost:2201');
 };
 
-app.listen(4001, handleListen);
+app.listen(2201, handleListen);
