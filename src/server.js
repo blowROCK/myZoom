@@ -13,16 +13,26 @@ app.get('/*', (req, res) => res.redirect('/'));
 
 const server = http.createServer(app)
 const wss = new webSocket.Server({ server });
-
+const sockets = [];
 wss.on('connection', (socket) => {
-  console.log('Connect to Browser!');
+  sockets.push(socket);
+  socket['nickname'] = 'Anon';
   socket.on('close', () => {
     console.log("Disconnected from the Browser!");
   })
-  socket.on('message', (message) => {
-    console.log("message from the Browser : ", message.toString());
+  socket.on('message', (msg) => {
+    const message = JSON.parse(msg.toString());
+    switch(message.type) {
+      case 'new_message':
+        sockets.forEach((s) => {
+          s.send(`${socket.nickname} : ${message.playload.toString()}`);
+        })
+        break;
+      case 'nickname':
+        socket['nickname'] = message.playload;
+        break;
+    }
   })
-  socket.send('hey!! user');
 });
 
 const handleListen = () => {

@@ -8,6 +8,12 @@ html(lang='ko')
     header
       h1 myZoom 
     main
-      h2 thanks for nomadcoder!!
+      ul#chat-list
+      form#nickname-form
+        input(type="text", placeholder="choose a nickname")
+        button save
+      form#chat-form
+        input(type="text", placeholder="write a msg")
+        button send
 
     script(src='/public/js/app.js')
