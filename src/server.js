@@ -15,8 +15,12 @@ const httpServer = http.createServer(app)
 const ioServer = socketIO(httpServer);
 
 ioServer.on('connection', (socket) => {
-  console.log("---is connect?--");
-  console.log('socket : ', socket);
+  socket.on('enter_room', (msg, callback) => {
+    console.log(msg);
+    setTimeout(() => {
+      callback();
+    }, 1000);
+  });
 })
 
 const handleListen = () => {
