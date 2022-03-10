@@ -15,11 +15,10 @@ const httpServer = http.createServer(app)
 const ioServer = socketIO(httpServer);
 
 ioServer.on('connection', (socket) => {
-  socket.on('enter_room', (msg, callback) => {
-    console.log(msg);
+  socket.on("enter_room", (payload, callback) => {
     setTimeout(() => {
-      callback();
-    }, 1000);
+      callback({status: '200'});
+    }, 2000);
   });
 })
 
